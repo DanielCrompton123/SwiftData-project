@@ -8,15 +8,47 @@
 import SwiftUI
 
 struct ProjectListView: View {
+    
     var body: some View {
-        VStack {
-            Image("Add")
-            Text("Hello, world!")
-                .foregroundStyle(Color("Washed blue"))
-                .font(Font.prjScreenHeading)
+        
+        ZStack(alignment: .bottomLeading) {
+            
+            LinearGradient(colors: [Color("Deep purple"), Color("Blush")], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+
+            VStack(alignment: .leading) {
+                
+                Text("Projects")
+                    .font(Font.prjScreenHeading)
+                
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ProjectCard()
+                        ProjectCard()
+                        ProjectCard()
+                        ProjectCard()
+                        ProjectCard()
+                        ProjectCard()
+                        ProjectCard()
+                    }
+                }
+                .scrollIndicators(.hidden)
+                                
+            }
+            .foregroundStyle(.white)
+            .padding()
+            
+            Button(action: {
+                
+            }, label: {
+                Image("Add")
+            })
+            .padding(.leading)
+            
         }
-        .padding()
+        
     }
+    
 }
 
 #Preview {
