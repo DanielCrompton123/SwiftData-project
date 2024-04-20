@@ -13,6 +13,7 @@
 		65276DCD2BD305BF0079CEB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65276DCC2BD305BF0079CEB2 /* Preview Assets.xcassets */; };
 		65276DD52BD306CD0079CEB2 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DD42BD306CD0079CEB2 /* Project.swift */; };
 		65276DD72BD3072F0079CEB2 /* ProjectUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DD62BD3072F0079CEB2 /* ProjectUpdate.swift */; };
+		65276DDA2BD429AA0079CEB2 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DD92BD429AA0079CEB2 /* FontHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		65276DCC2BD305BF0079CEB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		65276DD42BD306CD0079CEB2 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		65276DD62BD3072F0079CEB2 /* ProjectUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdate.swift; sourceTree = "<group>"; };
+		65276DD92BD429AA0079CEB2 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		65276DC42BD305BD0079CEB2 /* Project Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				65276DD82BD4299F0079CEB2 /* Helpers */,
 				65276DD32BD306C50079CEB2 /* Models */,
 				65276DC52BD305BD0079CEB2 /* Project_TrackerApp.swift */,
 				65276DC72BD305BD0079CEB2 /* ProjectListView.swift */,
@@ -79,6 +82,14 @@
 				65276DD62BD3072F0079CEB2 /* ProjectUpdate.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		65276DD82BD4299F0079CEB2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				65276DD92BD429AA0079CEB2 /* FontHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65276DD72BD3072F0079CEB2 /* ProjectUpdate.swift in Sources */,
+				65276DDA2BD429AA0079CEB2 /* FontHelper.swift in Sources */,
 				65276DC82BD305BD0079CEB2 /* ProjectListView.swift in Sources */,
 				65276DC62BD305BD0079CEB2 /* Project_TrackerApp.swift in Sources */,
 				65276DD52BD306CD0079CEB2 /* Project.swift in Sources */,
