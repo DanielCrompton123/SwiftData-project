@@ -16,6 +16,7 @@
 		65276DDA2BD429AA0079CEB2 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DD92BD429AA0079CEB2 /* FontHelper.swift */; };
 		65276DDC2BD43F740079CEB2 /* TextBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DDB2BD43F740079CEB2 /* TextBubble.swift */; };
 		65276DDF2BD4422A0079CEB2 /* ProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DDE2BD4422A0079CEB2 /* ProjectCard.swift */; };
+		65276DE12BD5225F0079CEB2 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65276DE02BD5225F0079CEB2 /* AddProjectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		65276DD92BD429AA0079CEB2 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		65276DDB2BD43F740079CEB2 /* TextBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBubble.swift; sourceTree = "<group>"; };
 		65276DDE2BD4422A0079CEB2 /* ProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCard.swift; sourceTree = "<group>"; };
+		65276DE02BD5225F0079CEB2 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				65276DDB2BD43F740079CEB2 /* TextBubble.swift */,
 				65276DDE2BD4422A0079CEB2 /* ProjectCard.swift */,
+				65276DE02BD5225F0079CEB2 /* AddProjectView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				65276DD72BD3072F0079CEB2 /* ProjectUpdate.swift in Sources */,
 				65276DDA2BD429AA0079CEB2 /* FontHelper.swift in Sources */,
+				65276DE12BD5225F0079CEB2 /* AddProjectView.swift in Sources */,
 				65276DDC2BD43F740079CEB2 /* TextBubble.swift in Sources */,
 				65276DC82BD305BD0079CEB2 /* ProjectListView.swift in Sources */,
 				65276DDF2BD4422A0079CEB2 /* ProjectCard.swift in Sources */,

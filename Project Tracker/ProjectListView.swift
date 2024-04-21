@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProjectListView: View {
     
+    @State var newProject: Project?
+    
     var body: some View {
         
         ZStack(alignment: .bottomLeading) {
@@ -39,12 +41,16 @@ struct ProjectListView: View {
             .padding()
             
             Button(action: {
-                
+                newProject = Project()
             }, label: {
                 Image("Add")
             })
             .padding(.leading)
             
+        }
+        .sheet(item: $newProject) { project in
+            AddProjectView(project: project)
+                .presentationDetents([.height(250)])
         }
         
     }
