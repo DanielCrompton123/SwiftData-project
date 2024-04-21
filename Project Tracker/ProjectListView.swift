@@ -18,42 +18,53 @@ struct ProjectListView: View {
     
     var body: some View {
         
-        ZStack(alignment: .bottomLeading) {
+        NavigationStack {
             
-            LinearGradient(colors: [Color("Deep purple"), Color("Blush")], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+            ZStack(alignment: .bottomLeading) {
+                
+                LinearGradient(colors: [Color("Deep purple"), Color("Blush")], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                
+                VStack(alignment: .leading) {
+                    
+                    Text("Projects")
+                        .font(Font.prjScreenHeading)
+                    
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            ForEach(projects) { project in
+                                NavigationLink {
+                                    // Destination
+                                    ProjectDetailView(project: project)
+                                        .foregroundStyle(.black)
+                                } label: {
+                                    ProjectCard(project: project)
+                                }
 
-            VStack(alignment: .leading) {
-                
-                Text("Projects")
-                    .font(Font.prjScreenHeading)
-                
-                ScrollView {
-                    VStack(spacing: 20) {
-                        ForEach(projects) { project in
-                            ProjectCard(project: project)
+                            }
                         }
                     }
+                    .scrollIndicators(.hidden)
+                    
                 }
-                .scrollIndicators(.hidden)
-                                
+                .foregroundStyle(.white)
+                .padding()
+                
+                Button(action: {
+                    newProject = Project()
+                }, label: {
+                    Image("Add project")
+                })
+                .padding(.leading)
+                
             }
-            .foregroundStyle(.white)
-            .padding()
-            
-            Button(action: {
-                newProject = Project()
-            }, label: {
-                Image("Add project")
-            })
-            .padding(.leading)
             
         }
         .sheet(item: $newProject) { project in
             AddProjectView(project: project)
                 .presentationDetents([.height(250)])
         }
-        
+
     }
     
 }
