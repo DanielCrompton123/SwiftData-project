@@ -48,14 +48,14 @@ struct ProjectListView: View {
                     
                 }
                 .foregroundStyle(.white)
-                .padding()
+                .padding(30)
                 
                 Button(action: {
                     newProject = Project()
                 }, label: {
                     Image("Add project")
                 })
-                .padding(.leading)
+                .padding()
                 
             }
             

@@ -19,7 +19,7 @@ struct ProjectCard: View {
                 .font(.prjBigHeadline)
                 .foregroundStyle(.white)
             
-            HStack {
+            HStack(spacing: 10) {
                 Spacer()
                 
                 TextBubble(title: "Hours", content: "230", color1Name: "Navy", color2Name: "Sky blue")

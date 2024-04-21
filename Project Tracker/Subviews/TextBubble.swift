@@ -13,15 +13,21 @@ struct TextBubble: View {
     @State var content: String
     @State var color1Name: String
     @State var color2Name: String
+    @State var isBold: Bool = true
     
     var body: some View {
         
         VStack {
             Text(title)
                 .font(.prjCaptionText)
-            Text(content)
-                .font(.prjFeaturedNumber)
-                .fontWeight(.bold)
+            if isBold {
+                Text(content)
+                    .font(.prjFeaturedNumber)
+                    .fontWeight(.bold)
+            } else {
+                Text(content)
+                    .font(.prjFeaturedNumber)
+            }
         }
         .foregroundStyle(.white)
         .padding(.horizontal, 10)
@@ -37,5 +43,5 @@ struct TextBubble: View {
 }
 
 #Preview {
-    TextBubble(title: "Hours", content: "230", color1Name: "Navy", color2Name: "Blue")
+    TextBubble(title: "Hours", content: "230", color1Name: "Navy", color2Name: "Blue", isBold: false)
 }
