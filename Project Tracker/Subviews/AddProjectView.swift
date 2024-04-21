@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddProjectView: View {
     
-    var project: Project?
+    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
+    
+    var project: Project
     @State private var projectName = ""
     
     var body: some View {
@@ -34,6 +38,10 @@ struct AddProjectView: View {
                 
                 Button(action: {
                     // Save the project to SwiftData
+                    project.name = projectName
+                    context.insert(project)
+                    
+                    dismiss()
                 }, label: {
                     ZStack {
                         Capsule()
