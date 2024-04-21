@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ProjectCard: View {
+    
+    var project: Project
+    
     var body: some View {
         
-
         VStack(alignment: .leading, spacing: 10) {
             
-            Text("Daniel Crompton")
+            Text(project.name)
                 .font(.prjBigHeadline)
                 .foregroundStyle(.white)
             
@@ -51,5 +53,5 @@ struct ProjectCard: View {
 }
 
 #Preview {
-    ProjectCard()
+    ProjectCard(project: Project())
 }

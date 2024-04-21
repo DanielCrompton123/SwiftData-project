@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectListView: View {
+    
+    @Environment(\.modelContext) private var context
+    @Query private var projects: [Project]
+    
     
     @State var newProject: Project?
     
@@ -25,13 +30,9 @@ struct ProjectListView: View {
                 
                 ScrollView {
                     VStack(spacing: 20) {
-                        ProjectCard()
-                        ProjectCard()
-                        ProjectCard()
-                        ProjectCard()
-                        ProjectCard()
-                        ProjectCard()
-                        ProjectCard()
+                        ForEach(projects) { project in
+                            ProjectCard(project: project)
+                        }
                     }
                 }
                 .scrollIndicators(.hidden)
