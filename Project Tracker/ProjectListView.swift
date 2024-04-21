@@ -44,7 +44,7 @@ struct ProjectListView: View {
             Button(action: {
                 newProject = Project()
             }, label: {
-                Image("Add")
+                Image("Add project")
             })
             .padding(.leading)
             

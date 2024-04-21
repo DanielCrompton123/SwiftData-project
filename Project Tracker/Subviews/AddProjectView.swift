@@ -45,7 +45,7 @@ struct AddProjectView: View {
                 }, label: {
                     ZStack {
                         Capsule()
-                            .foregroundStyle(LinearGradient(colors: [Color("Navy"), Color("Purple")], startPoint: .leading, endPoint: .trailing))
+                            .foregroundStyle(LinearGradient(colors: [Color("Navy"), Color("Fuschia")], startPoint: .leading, endPoint: .trailing))
                             .frame(width: 278, height: 50)
                         
                         Text("Save")
