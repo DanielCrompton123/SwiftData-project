@@ -37,6 +37,10 @@ struct ProjectDetailView: View {
                             u2.date < u1.date
                         })) { update in
                             ProjectUpdateView(update: update)
+                                .onTapGesture { }
+                                .onLongPressGesture {
+                                    newUpdate = update
+                                }
                         }
                     }
                     .padding(.bottom, 120)
@@ -51,7 +55,8 @@ struct ProjectDetailView: View {
         }
         .navigationBarBackButtonHidden()
         .sheet(item: $newUpdate) { update in
-            AddUpdateView(project: project, update: update)
+            let editMode = update.headline != ""
+            AddUpdateView(project: project, update: update, editMode: editMode)
                 .presentationDetents([.fraction(0.75)])
         }
         .sheet(isPresented: $showEditFocus) {

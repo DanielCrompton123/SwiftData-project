@@ -37,7 +37,7 @@ struct ProjectListView: View {
 
                                 ProjectCard(project: project)
                                 .onTapGesture {
-                                    selectedProject = project
+                                    selectedProject = project // so that the navigation destination (on root element) is triggered
                                 }
                                 .onLongPressGesture {
                                     newProject = project // So that the sheet is trigered

@@ -14,20 +14,27 @@ struct AddUpdateView: View {
     
     var project: Project
     var update: ProjectUpdate
+    var editMode: Bool
     
     @State private var headline = ""
     @State private var summary = ""
     @State private var hours = ""
+    @State private var showsConfirmation = false
     
     var body: some View {
         
         ZStack {
             
-            Color.black
-                .ignoresSafeArea()
+            if editMode {
+                LinearGradient(colors: [.lime, .black], startPoint: .bottomTrailing, endPoint: .topLeading)
+                    .ignoresSafeArea()
+            } else {
+                Color.black
+                    .ignoresSafeArea()
+            }
             
             VStack(spacing: 30) {
-                Text("Update project")
+                Text(editMode ? "Edit update" : "Add update")
                     .font(.prjBigHeadline)
                 
                 AddField(title: "Headline", value: $headline)
@@ -41,7 +48,9 @@ struct AddUpdateView: View {
                     update.summary = summary
                     update.hours = Float(hours)!
                     
-                    project.updates.append(update)
+                    if !editMode {
+                        project.updates.append(update)
+                    }
                     
                     dismiss()
                 }, label: {
@@ -50,17 +59,41 @@ struct AddUpdateView: View {
                             .foregroundStyle(LinearGradient(colors: [Color("Navy"), Color("Fuschia")], startPoint: .leading, endPoint: .trailing))
                             .frame(width: 278, height: 50)
                         
-                        Text("Save")
+                        Text(editMode ? "Save" : "Add")
                             .font(.prjFeaturedText)
                             .fontWeight(.bold)
                     }
                 })
+                
+                if editMode {
+                    Button("Delete") {
+                        // Show confirmation dialogue before deleting
+                        showsConfirmation = true
+                    }
+                    .foregroundStyle(.blush)
+                    .bold()
+                    .font(.prjRegularText)
+                }
                 
             }
             .padding()
             
         }
         .foregroundStyle(.white)
+        .confirmationDialog("Sure you want to delete update?", isPresented: $showsConfirmation, titleVisibility: .visible) {
+            // Actions
+            Button("Yes") {
+                project.updates.removeAll { u in
+                    u.id == update.id
+                }
+                dismiss()
+            }
+        }
+        .onAppear {
+            headline = update.headline
+            summary = update.summary
+            hours = String(update.hours)
+        }
         
     }
 }
