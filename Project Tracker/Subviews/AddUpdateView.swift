@@ -1,20 +1,23 @@
 //
-//  AddProjectView.swift
+//  AddUpdateView.swift
 //  Project Tracker
 //
-//  Created by Daniel Crompton on 21/04/2024.
+//  Created by Daniel Crompton on 27/04/2024.
 //
 
 import SwiftUI
-import SwiftData
 
-struct AddProjectView: View {
+struct AddUpdateView: View {
     
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
     var project: Project
-    @State private var projectName = ""
+    var update: ProjectUpdate
+    
+    @State private var headline = ""
+    @State private var summary = ""
+    @State private var hours = ""
     
     var body: some View {
         
@@ -24,15 +27,18 @@ struct AddProjectView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
-                Text("New project")
+                Text("Update project")
                     .font(.prjBigHeadline)
                 
-                AddField(title: "Name", value: $projectName)
+                AddField(title: "Headline", value: $headline)
+                AddField(title: "Summary", value: $summary, expand: .vertical)
+                AddField(title: "Hours", value: $hours)
+                    .keyboardType(.numberPad)
                 
                 Button(action: {
                     // Save the project to SwiftData
-                    project.name = projectName
-                    context.insert(project)
+//                    project.name = projectName
+//                    context.insert(project)
                     
                     dismiss()
                 }, label: {
@@ -48,13 +54,10 @@ struct AddProjectView: View {
                 })
                 
             }
+            .padding()
             
         }
         .foregroundStyle(.white)
         
     }
-}
-
-#Preview {
-    AddProjectView(project: Project())
 }

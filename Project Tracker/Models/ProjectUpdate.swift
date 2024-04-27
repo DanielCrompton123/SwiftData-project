@@ -20,7 +20,7 @@ class ProjectUpdate: Identifiable {
     
     var project: Project?
     
-    init(headline: String, summary: String, hours: Float, updateType: ProjectUpdateType) {
+    init(headline: String = "", summary: String = "", hours: Float = 0, updateType: ProjectUpdateType = ProjectUpdateType.log) {
         self.id = UUID().uuidString
         self.headline = headline
         self.summary = summary

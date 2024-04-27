@@ -10,6 +10,7 @@ import SwiftUI
 struct ProjectDetailView: View {
     
     var project: Project
+    @State var newUpdate: ProjectUpdate?
         
     var body: some View {
                     
@@ -46,10 +47,14 @@ struct ProjectDetailView: View {
                 .padding(.horizontal, 30)
             }
             
-            ProjectDetailFooter()
+            ProjectDetailFooter(update: $newUpdate)
             
         }
         .navigationBarBackButtonHidden()
+        .sheet(item: $newUpdate) { update in
+            AddUpdateView(project: project, update: update)
+                .presentationDetents([.height(450)])
+        }
 
     }
 }
@@ -106,19 +111,23 @@ struct ProjectDetailHeader: View {
 struct ProjectDetailFooter: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Binding var update: ProjectUpdate?
     
     var body: some View {
         
         HStack {
             
+            // ADD BUTTON
             Button {
                 // Add update
+                update = ProjectUpdate()
             } label: {
                 Image("Add project")
             }
 
             Spacer()
             
+            // BACK BUTTON
             Button {
                 // Dismiss AKA go up a level in the navigation stack
                 dismiss()
