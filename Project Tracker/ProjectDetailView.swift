@@ -52,11 +52,11 @@ struct ProjectDetailView: View {
         .navigationBarBackButtonHidden()
         .sheet(item: $newUpdate) { update in
             AddUpdateView(project: project, update: update)
-                .presentationDetents([.height(450)])
+                .presentationDetents([.fraction(0.75)])
         }
         .sheet(isPresented: $showEditFocus) {
             EditFocusView(project: project)
-                .presentationDetents([.height(250)])
+                .presentationDetents([.fraction(0.5)])
         }
 
     }

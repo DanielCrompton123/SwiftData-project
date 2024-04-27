@@ -15,6 +15,7 @@ struct ProjectListView: View {
     
     
     @State var newProject: Project?
+    @State var selectedProject: Project?
     
     var body: some View {
         
@@ -33,14 +34,15 @@ struct ProjectListView: View {
                     ScrollView {
                         VStack(spacing: 20) {
                             ForEach(projects) { project in
-                                NavigationLink {
-                                    // Destination
-                                    ProjectDetailView(project: project)
-                                        .foregroundStyle(.black)
-                                } label: {
-                                    ProjectCard(project: project)
-                                }
 
+                                ProjectCard(project: project)
+                                .onTapGesture {
+                                    selectedProject = project
+                                }
+                                .onLongPressGesture {
+                                    newProject = project // So that the sheet is trigered
+                                }
+                                
                             }
                         }
                     }
@@ -58,11 +60,16 @@ struct ProjectListView: View {
                 .padding()
                 
             }
+            .navigationDestination(item: $selectedProject) { project in
+                ProjectDetailView(project: project)
+                    .foregroundStyle(.black)
+            }
             
         }
         .sheet(item: $newProject) { project in
-            AddProjectView(project: project)
-                .presentationDetents([.height(250)])
+            let isEditing = !project.name.isEmpty
+            AddProjectView(project: project, editMode: isEditing)
+                .presentationDetents([.fraction(0.5)])
         }
 
     }
