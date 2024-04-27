@@ -37,8 +37,11 @@ struct AddUpdateView: View {
                 
                 Button(action: {
                     // Save the project to SwiftData
-//                    project.name = projectName
-//                    context.insert(project)
+                    update.headline = headline
+                    update.summary = summary
+                    update.hours = Float(hours)!
+                    
+                    project.updates.append(update)
                     
                     dismiss()
                 }, label: {

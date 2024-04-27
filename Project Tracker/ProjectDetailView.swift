@@ -31,14 +31,9 @@ struct ProjectDetailView: View {
                 ScrollView {
                     
                     VStack(spacing: 20) {
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 9, updateType: .log))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 9, updateType: .log))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 9, updateType: .milestone))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 6, updateType: .log))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 6, updateType: .log))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 6, updateType: .log))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 6, updateType: .log))
-                        ProjectDetailUpdate(update: ProjectUpdate(headline: "What a win!", summary: "THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt. THis ius ajg big asdklt", hours: 6, updateType: .log))
+                        ForEach(project.updates) { update in
+                            ProjectUpdateView(update: update)
+                        }
                     }
                     .padding(.bottom, 120)
                     
@@ -153,52 +148,6 @@ struct ProjectDetailFooter: View {
                 .clipShape(.rect(topLeadingRadius: 15, topTrailingRadius: 15))
                 .ignoresSafeArea()
         }
-    }
-    
-}
-
-
-struct ProjectDetailUpdate: View {
-    var update: ProjectUpdate
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-                                        
-            ZStack {
-                
-                Rectangle()
-                    .foregroundStyle(LinearGradient(colors: [
-                        update.updateType == .log ? Color("Deep purple") : Color("Tiffany teal"),
-                        update.updateType == .log ? Color("Orchid") : Color("Turtle green")
-                    ], startPoint: .leading, endPoint: .trailing))
-                
-                HStack {
-                    Text("Thursday, Sept 20, 2023")
-                    Spacer()
-                    Text("\(String(Int(update.hours))) hours")
-                }
-                .font(.prjRegularText)
-                .padding(.horizontal, 15)
-                .padding(.vertical, 7)
-
-            }
-            
-            ZStack {
-                Rectangle()
-                    .foregroundStyle(.black)
-                    .opacity(0.7)
-
-                Text(update.summary)
-                    .padding(15)
-                    .font(.prjFeaturedText)
-            }
-
-        }
-        .clipShape(.rect(cornerRadius: 15))
-        .multilineTextAlignment(.leading)
-        .shadow(radius: 5, x: 0, y: 4)
-        .foregroundStyle(.white)
-        
     }
     
 }

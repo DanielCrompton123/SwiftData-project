@@ -20,6 +20,8 @@
 		654D9E222BD5726F00C72BCA /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D9E212BD5726F00C72BCA /* ProjectDetailView.swift */; };
 		65D975FA2BDD58F900371956 /* AddUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D975F92BDD58F900371956 /* AddUpdateView.swift */; };
 		65D975FC2BDD599600371956 /* AddField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D975FB2BDD599600371956 /* AddField.swift */; };
+		65D975FE2BDD656D00371956 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D975FD2BDD656D00371956 /* ProjectUpdateView.swift */; };
+		65D976002BDD674700371956 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D975FF2BDD674700371956 /* DateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		654D9E212BD5726F00C72BCA /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		65D975F92BDD58F900371956 /* AddUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateView.swift; sourceTree = "<group>"; };
 		65D975FB2BDD599600371956 /* AddField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddField.swift; sourceTree = "<group>"; };
+		65D975FD2BDD656D00371956 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
+		65D975FF2BDD674700371956 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				65276DD92BD429AA0079CEB2 /* FontHelper.swift */,
+				65D975FF2BDD674700371956 /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 				65276DE02BD5225F0079CEB2 /* AddProjectView.swift */,
 				65D975F92BDD58F900371956 /* AddUpdateView.swift */,
 				65D975FB2BDD599600371956 /* AddField.swift */,
+				65D975FD2BDD656D00371956 /* ProjectUpdateView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D975FE2BDD656D00371956 /* ProjectUpdateView.swift in Sources */,
 				65276DD72BD3072F0079CEB2 /* ProjectUpdate.swift in Sources */,
 				65D975FC2BDD599600371956 /* AddField.swift in Sources */,
 				65276DDA2BD429AA0079CEB2 /* FontHelper.swift in Sources */,
@@ -195,6 +202,7 @@
 				65276DE12BD5225F0079CEB2 /* AddProjectView.swift in Sources */,
 				65276DDC2BD43F740079CEB2 /* TextBubble.swift in Sources */,
 				65D975FA2BDD58F900371956 /* AddUpdateView.swift in Sources */,
+				65D976002BDD674700371956 /* DateHelper.swift in Sources */,
 				65276DC82BD305BD0079CEB2 /* ProjectListView.swift in Sources */,
 				65276DDF2BD4422A0079CEB2 /* ProjectCard.swift in Sources */,
 				65276DC62BD305BD0079CEB2 /* Project_TrackerApp.swift in Sources */,
