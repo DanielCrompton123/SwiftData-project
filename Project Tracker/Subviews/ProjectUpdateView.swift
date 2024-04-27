@@ -25,7 +25,12 @@ struct ProjectUpdateView: View {
                 HStack {
                     Text(DateHelper.convertDate(update.date))
                     Spacer()
-                    Text("\(String(update.hours)) hours")
+                    if update.updateType == .log {
+                        Text("\(String(update.hours)) hours")
+                    } else {
+                        Image(systemName: "star.fill")
+                            .foregroundStyle(.yellow)
+                    }
                 }
                 .font(.prjRegularText)
                 .padding(.horizontal, 15)
@@ -38,13 +43,17 @@ struct ProjectUpdateView: View {
                     .foregroundStyle(.black)
                     .opacity(0.7)
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(update.headline)
-                        .bold()
-                    Text(update.summary)
+                HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(update.headline)
+                            .bold()
+                        Text(update.summary)
+                    }
+                    .padding(15)
+                    .font(.prjFeaturedText)
+                    
+                    Spacer()
                 }
-                .padding(15)
-                .font(.prjFeaturedText)
             }
 
         }

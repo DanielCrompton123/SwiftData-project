@@ -55,7 +55,3 @@ struct ProjectCard: View {
 
     }
 }
-
-#Preview {
-    ProjectCard(project: Project())
-}

@@ -33,7 +33,9 @@ struct ProjectDetailView: View {
                 ScrollView {
                     
                     VStack(spacing: 20) {
-                        ForEach(project.updates) { update in
+                        ForEach(project.updates.sorted(by: { u1, u2 in
+                            u2.date < u1.date
+                        })) { update in
                             ProjectUpdateView(update: update)
                         }
                     }
@@ -89,7 +91,13 @@ struct ProjectDetailHeader: View {
             
             HStack {
                 if !project.focus.isEmpty {
-                    Image(systemName: "checkmark.square")
+                    Button {
+                        completeMilestone()
+                        
+                    } label: {
+                        Image(systemName: "checkmark.square")
+                    }
+
                 }
                 Text(project.focus.isEmpty ? "Tap to set your focus" : project.focus)
                     .font(.prjFeaturedText)
@@ -111,6 +119,16 @@ struct ProjectDetailHeader: View {
                 .ignoresSafeArea()
         }
 
+    }
+    
+    
+    func completeMilestone() {
+        // Add a project update
+        let update = ProjectUpdate(headline: "Milestone achieved!", summary: project.focus, updateType: .milestone)
+        project.updates.append(update)
+        
+        // Set the focus to nothing again
+        project.focus = ""
     }
     
 }
