@@ -11,6 +11,8 @@ struct ProjectDetailView: View {
     
     var project: Project
     @State var newUpdate: ProjectUpdate?
+    
+    @State private var showEditFocus = false
         
     var body: some View {
                     
@@ -25,7 +27,7 @@ struct ProjectDetailView: View {
                 .padding(.leading, 48)
             
             VStack {
-                ProjectDetailHeader(project: project)
+                ProjectDetailHeader(project: project, showEditFocus: $showEditFocus)
                     .padding(.bottom)
                 
                 ScrollView {
@@ -50,6 +52,10 @@ struct ProjectDetailView: View {
             AddUpdateView(project: project, update: update)
                 .presentationDetents([.height(450)])
         }
+        .sheet(isPresented: $showEditFocus) {
+            EditFocusView(project: project)
+                .presentationDetents([.height(250)])
+        }
 
     }
 }
@@ -57,6 +63,8 @@ struct ProjectDetailView: View {
 
 struct ProjectDetailHeader: View {
     var project: Project
+    
+    @Binding var showEditFocus: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -80,9 +88,14 @@ struct ProjectDetailHeader: View {
                 .foregroundStyle(.gray)
             
             HStack {
-                Image(systemName: "checkmark.square")
-                Text("Launch the website with the new design.")
+                if !project.focus.isEmpty {
+                    Image(systemName: "checkmark.square")
+                }
+                Text(project.focus.isEmpty ? "Tap to set your focus" : project.focus)
                     .font(.prjFeaturedText)
+                    .onTapGesture {
+                        showEditFocus = true
+                    }
             }
             .padding(.leading, 7)
             .foregroundStyle(.gray)
@@ -150,9 +163,4 @@ struct ProjectDetailFooter: View {
         }
     }
     
-}
-
-
-#Preview {
-    ProjectDetailView(project: Project())
 }

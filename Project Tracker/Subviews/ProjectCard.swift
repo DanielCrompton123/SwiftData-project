@@ -30,13 +30,17 @@ struct ProjectCard: View {
                 Spacer()
             }
             
-            Text("My current focus is...")
-                .font(.prjFeaturedText)
-                .foregroundStyle(.gray)
-            Text("Design the new website")
-                .font(.prjFeaturedText)
-                .fontWeight(.bold)
-                .foregroundStyle(.gray)
+            if !project.focus.isEmpty {
+                
+                Text("My current focus is...")
+                    .font(.prjFeaturedText)
+                    .foregroundStyle(.gray)
+                Text(project.focus)
+                    .font(.prjFeaturedText)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.gray)
+                
+            }
             
         }
         .padding(.vertical, 10)
