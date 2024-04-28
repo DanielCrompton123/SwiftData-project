@@ -23,6 +23,7 @@
 		65D975FE2BDD656D00371956 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D975FD2BDD656D00371956 /* ProjectUpdateView.swift */; };
 		65D976002BDD674700371956 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D975FF2BDD674700371956 /* DateHelper.swift */; };
 		65D976022BDD722200371956 /* EditFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D976012BDD722200371956 /* EditFocusView.swift */; };
+		65D976042BDE6BF400371956 /* StatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D976032BDE6BF400371956 /* StatHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		65D975FD2BDD656D00371956 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
 		65D975FF2BDD674700371956 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		65D976012BDD722200371956 /* EditFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFocusView.swift; sourceTree = "<group>"; };
+		65D976032BDE6BF400371956 /* StatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				65276DD92BD429AA0079CEB2 /* FontHelper.swift */,
 				65D975FF2BDD674700371956 /* DateHelper.swift */,
+				65D976032BDE6BF400371956 /* StatHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				65276DD72BD3072F0079CEB2 /* ProjectUpdate.swift in Sources */,
 				65D975FC2BDD599600371956 /* AddField.swift in Sources */,
 				65276DDA2BD429AA0079CEB2 /* FontHelper.swift in Sources */,
+				65D976042BDE6BF400371956 /* StatHelper.swift in Sources */,
 				654D9E222BD5726F00C72BCA /* ProjectDetailView.swift in Sources */,
 				65D976022BDD722200371956 /* EditFocusView.swift in Sources */,
 				65276DE12BD5225F0079CEB2 /* AddProjectView.swift in Sources */,

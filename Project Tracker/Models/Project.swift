@@ -19,6 +19,10 @@ class Project: Identifiable {
     @Relationship(deleteRule: .cascade, inverse: \ProjectUpdate.project)
     var updates: [ProjectUpdate] = []
     
+    var hours: Float = 0.0
+    var sessions = 0
+    var wins = 0
+    
     init() {
         self.id = UUID().uuidString
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectDetailView: View {
     
@@ -71,6 +72,7 @@ struct ProjectDetailView: View {
 struct ProjectDetailHeader: View {
     var project: Project
     
+    @Environment(\.modelContext) var context
     @Binding var showEditFocus: Bool
 
     var body: some View {
@@ -81,10 +83,10 @@ struct ProjectDetailHeader: View {
             HStack(spacing: 20) {
                 Spacer()
                 
-                TextBubble(title: "Hours", content: "230", color1Name: "Navy", color2Name: "Sky blue", isBold: false)
-                TextBubble(title: "Sessions", content: "34", color1Name: "Green", color2Name: "Lime", isBold: false)
-                TextBubble(title: "Updates", content: "6", color1Name: "Deep purple", color2Name: "Fuschia", isBold: false)
-                TextBubble(title: "Wins", content: "3", color1Name: "Maroon", color2Name: "Olive", isBold: false)
+                TextBubble(title: "Hours", content: String(project.hours), color1Name: "Navy", color2Name: "Sky blue", isBold: false)
+                TextBubble(title: "Sessions", content: String(project.sessions), color1Name: "Green", color2Name: "Lime", isBold: false)
+                TextBubble(title: "Updates", content: String(project.updates.count), color1Name: "Deep purple", color2Name: "Fuschia", isBold: false)
+                TextBubble(title: "Wins", content: String(project.wins), color1Name: "Maroon", color2Name: "Olive", isBold: false)
                 
                 Spacer()
             }
@@ -132,8 +134,13 @@ struct ProjectDetailHeader: View {
         let update = ProjectUpdate(headline: "Milestone achieved!", summary: project.focus, updateType: .milestone)
         project.updates.append(update)
         
+        // Force save
+        try! context.save()
+        
         // Set the focus to nothing again
         project.focus = ""
+        
+        StatHelper.updateAdded(project: project, update: update)
     }
     
 }

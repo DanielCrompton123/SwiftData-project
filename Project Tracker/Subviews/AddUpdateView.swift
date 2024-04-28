@@ -46,10 +46,19 @@ struct AddUpdateView: View {
                     // Save the project to SwiftData
                     update.headline = headline
                     update.summary = summary
-                    update.hours = Float(hours)!
+                    let oldHours = update.hours,
+                        newHours = Float(hours)!,
+                        hoursDifference = newHours - oldHours
+                    update.hours = newHours
                     
                     if !editMode {
                         project.updates.append(update)
+                        // Force a swift data save
+                        try! context.save()
+                        StatHelper.updateAdded(project: project, update: update)
+                    } else {
+                        try! context.save()
+                        StatHelper.updateEdited(project: project, difference: hoursDifference)
                     }
                     
                     dismiss()
@@ -86,6 +95,10 @@ struct AddUpdateView: View {
                 project.updates.removeAll { u in
                     u.id == update.id
                 }
+                // Force a swift data save before calling the remove method
+                try! context.save()
+                StatHelper.updateDeleted(project: project, update: update)
+                
                 dismiss()
             }
         }

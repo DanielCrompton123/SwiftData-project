@@ -22,10 +22,10 @@ struct ProjectCard: View {
             HStack(spacing: 10) {
                 Spacer()
                 
-                TextBubble(title: "Hours", content: "230", color1Name: "Navy", color2Name: "Sky blue")
-                TextBubble(title: "Sessions", content: "34", color1Name: "Green", color2Name: "Lime")
-                TextBubble(title: "Updates", content: "6", color1Name: "Deep purple", color2Name: "Fuschia")
-                TextBubble(title: "Wins", content: "3", color1Name: "Maroon", color2Name: "Olive")
+                TextBubble(title: "Hours", content: String(project.hours), color1Name: "Navy", color2Name: "Sky blue")
+                TextBubble(title: "Sessions", content: String(project.sessions), color1Name: "Green", color2Name: "Lime")
+                TextBubble(title: "Updates", content: String(project.updates.count), color1Name: "Deep purple", color2Name: "Fuschia")
+                TextBubble(title: "Wins", content: String(project.wins), color1Name: "Maroon", color2Name: "Olive")
                 
                 Spacer()
             }
